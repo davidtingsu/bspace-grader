@@ -1,0 +1,35 @@
+.center {
+    margin: 0 auto;
+}
+.main {
+    width: 960px;
+}
+* {
+    font-family: 'Varela Round', sans-serif;
+}
+.dashboard {
+    font-size: 1em;
+}
+.silver-font {
+    color: silver;
+}
+.block {
+    display: block;
+}
+.full-width {
+    width: 100%;
+}
+.pull-left {
+    float: left;
+}
+.pull-right {
+    float: right;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid silver;
+}
+table td {
+  border: 1px solid silver;
+  padding: 8px;
+}
