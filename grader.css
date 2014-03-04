@@ -7,6 +7,32 @@
 * {
     font-family: 'Varela Round', sans-serif;
 }
+.grade:after{
+    margin-left: 1em;
+    padding: 0.1em 2.4em;
+    border-radius: 0.2em;
+}
+.grade-a:after {
+    color: green;
+    border: 1px solid;
+}
+.grade-b:after {
+    color: yellowgreen;
+    border: 1px solid;
+}
+.grade-c:after {
+    color: gold;
+    border: 1px solid;
+}
+.grade-d:after {
+    color: darkorange;
+    border: 1px solid;
+}
+.grade-d:after {
+    color: red;
+    border: 1px solid;
+}
+
 .dashboard {
     font-size: 1em;
 }
