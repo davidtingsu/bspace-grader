@@ -27,7 +27,6 @@
                 }
             },
             print : function(){
-                console.log(_table.innerHTML);
                 $('.main')[0].appendChild(_table);
             }
         }
@@ -60,7 +59,7 @@
                 grade = 'C';
             } else if ( percent < 0.7  && percent > 0.6) {
                 grade = 'D';
-            } else if ( percent < 0.8  && percent > 0.6) {
+            } else if ( percent < 0.6) {
                 grade = 'F';
             }
             var digit = parseInt((percent * 100)) % 10, intensifier='';
@@ -72,7 +71,7 @@
             $('.grade')[0].className = "grade grade-" + grade.toLowerCase();
 
             addRule(".grade:after", {
-                content: "'" + (grade + intensifier + ' ') + (Math.round(100 * 100 * percent) / 100) + "%" + "'"
+                content: "'" + (grade + (grade !== 'F' ? intensifier + ' ' : ' ')) + (Math.round(100 * 100 * percent) / 100) + "%" + "'"
             });
         } else {
             $('.grade')[0].className = "grade";
@@ -89,8 +88,6 @@
                  function(e){
                      var span = document.createElement('span');
                      span.innerHTML =  e.target.value;
-                     //e.target.style.height = "0px";
-                     //e.target.style.height = e.target.scrollHeight + "px";
                      var string  = e.target.value, reg = /([0-9]+\.?[0-9]*)\/([0-9]+)/g, found;
                      var rows = e.target.value.split(/\n+/);
                      App.table.reset();
