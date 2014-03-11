@@ -84,10 +84,23 @@
 
 
     App.table.print();
+    function triggerChange(element){
+        if ("createEvent" in document) {
+                var evt = document.createEvent("HTMLEvents");
+                    evt.initEvent("change", false, true);
+                        element.dispatchEvent(evt);
+        }
+        else {
+                element.fireEvent("onchange");
+        }
+    }
     dashboard.on('change',
                  function(e){
                      var span = document.createElement('span');
                      span.innerHTML =  e.target.value;
+                     if (localStorage){
+                        localStorage.setItem('text', e.target.value);
+                     }
                      var string  = e.target.value, reg = /([0-9]+\.?[0-9]*)\/([0-9]+)/g, found;
                      var rows = e.target.value.split(/\n+/);
                      App.table.reset();
@@ -103,4 +116,10 @@
                      renderGrade(numerator/denominator);
                  }
     , false)
+    if ( window.localStorage ){
+        if ( localStorage.getItem('text') ){
+            dashboard.value = localStorage.getItem('text');
+            triggerChange(dashboard);
+        }
+    }
 })()
